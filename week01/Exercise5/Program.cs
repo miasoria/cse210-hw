@@ -1,7 +1,3 @@
-// Exceeding Requirements: The program now tracks the total number of activities completed by the user
-// in the current session using a static variable in the base class. 
-// This count is displayed at the end of every activity and through a new menu option.
-
 using System;
 
 class Program
@@ -15,7 +11,7 @@ class Program
             Console.WriteLine("  1. Start breathing activity");
             Console.WriteLine("  2. Start reflecting activity");
             Console.WriteLine("  3. Start listing activity");
-            Console.WriteLine("  4. View total activities completed");
+            Console.WriteLine("  4. View total activities completed"); // Opción añadida para Criterio 12
             Console.WriteLine("  5. Quit");
             Console.Write("Select a choice from the menu: ");
 
