@@ -1,45 +1,53 @@
+// Exceeding Requirements: The program now tracks the total number of activities completed by the user
+// in the current session using a static variable in the base class. 
+// This count is displayed at the end of every activity and through a new menu option.
+
 using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        DisplayWelcome();
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine("  1. Start breathing activity");
+            Console.WriteLine("  2. Start reflecting activity");
+            Console.WriteLine("  3. Start listing activity");
+            Console.WriteLine("  4. View total activities completed");
+            Console.WriteLine("  5. Quit");
+            Console.Write("Select a choice from the menu: ");
 
-        string userName = PromptUserName();
-        int favoriteNumber = PromptUserNumber();
-        int SquaredNumber = SquareNumber(favoriteNumber);
+            string choice = Console.ReadLine();
 
-        DisplayResult(userName, SquaredNumber);
-
-    }
-    static void DisplayWelcome()
-    {
-        Console.WriteLine("Welcome to the programm!");
-    }
-
-    static string PromptUserName()
-    {
-        Console.WriteLine("Please enter your name: ");
-        string name = Console.ReadLine();
-        return name;
-    }
-
-    static int PromptUserNumber()
-    {
-        Console.WriteLine("Please enter your favorite number: ");
-        int number = int.Parse(Console.ReadLine());
-        return number;
-    }
-
-    static int SquareNumber(int number)
-    {
-        int square = number * number;
-        return square;
-    }
-
-    static void DisplayResult(string name, int square)
-    {
-        Console.WriteLine($"{name}, the square of your number is {square}");
+            if (choice == "1")
+            {
+                BreathingActivity activity = new BreathingActivity();
+                activity.Run();
+            }
+            else if (choice == "2")
+            {
+                ReflectionActivity activity = new ReflectionActivity();
+                activity.Run();
+            }
+            else if (choice == "3")
+            {
+                ListingActivity activity = new ListingActivity();
+                activity.Run();
+            }
+            else if (choice == "4")
+            {
+                // Muestra el conteo de uso accediendo a la variable estática.
+                Console.Clear();
+                Console.WriteLine($"You have completed a total of {Activity._totalActivitiesCompleted} activities so far!");
+                Console.Write("Press Enter to return to the menu...");
+                Console.ReadLine();
+            }
+            else if (choice == "5")
+            {
+                break;
+            }
+        }
     }
 }
